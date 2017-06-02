@@ -50,6 +50,11 @@
   "main": "index.js",
   "name": "rich-text-editor",
   "nativePackage": true,
+  "rnpm": {
+   "commands": {
+     "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js"
+     }
+   },
   "optionalDependencies": {},
   "peerDependencies": {
     "react": "*",
