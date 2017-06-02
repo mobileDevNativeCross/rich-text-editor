@@ -1,0 +1,64 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "rich-text-editor@file:../",
+        "scope": null,
+        "escapedName": "rich-text-editor",
+        "name": "rich-text-editor",
+        "rawSpec": "file:../",
+        "spec": "/Users/admin/Desktop/Editor/rich-text-editor",
+        "type": "directory"
+      },
+      "/Users/admin/Desktop/Editor/rich-text-editor/example"
+    ]
+  ],
+  "_from": "..",
+  "_id": "rich-text-editor@1.0.2",
+  "_inCache": true,
+  "_location": "/rich-text-editor",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "rich-text-editor@file:../",
+    "scope": null,
+    "escapedName": "rich-text-editor",
+    "name": "rich-text-editor",
+    "rawSpec": "file:../",
+    "spec": "/Users/admin/Desktop/Editor/rich-text-editor",
+    "type": "directory"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "file:..",
+  "_shasum": "5ad5b4b6f23b1883d75e7d3a540bc7c61a226ef0",
+  "_shrinkwrap": null,
+  "_spec": "rich-text-editor@file:../",
+  "_where": "/Users/admin/Desktop/Editor/rich-text-editor/example",
+  "bugs": {
+    "url": "https://github.com/wix/rich-text-editor/issues"
+  },
+  "dependencies": {
+    "react-native-webview-bridge-updated": "^1.0.0",
+    "react-native-image-picker": "0.26.3"
+  },
+  "description": "React Native Wrapper for ZSSRichTextEditor",
+  "devDependencies": {},
+  "gitHead": "c646443d26bd2c4a245d7238f47611f7e2deda4f",
+  "homepage": "https://github.com/wix/rich-text-editor#readme",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "index.js",
+  "name": "rich-text-editor",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": "*",
+    "react-native": ">=0.31.0"
+  },
+  "readme": "#React Native Rich Text Editor\n\nA fully functional Rich Text Editor for both Android and iOS, based off the [ZSSRichTextEditor](https://github.com/nnhubbard/ZSSRichTextEditor/tree/master/ZSSRichTextEditor) project. \n\n##Installation\n\n`npm i --save rich-text-editor`\n\nOn Android, add the following to the end of your `android/app/build.gradle`\n\n```groovy\nproject.afterEvaluate {\n    apply from: '../../node_modules/rich-text-editor/htmlCopy.gradle';\n    copyEditorHtmlToAppAssets(file('../../node_modules/rich-text-editor'))\n}\n```\n\nAlso, follow instructions [here](https://github.com/alinz/react-native-webview-bridge) to add the native `react-native-webview-bridge-updated` dependency.\n\n\n##Usage\n\n`rich-text-editor` exports two Components and one const dictionary:\n\n##`RichTextEditor`\n\nThe editor component. Simply place this component in your view hierarchy to receive a fully functional Rich text Editor.\n\n`RichTextEditor` takes the following optional props:\n\n* `initialTitleHTML`\n\n\tHTML that will be rendered in the title section as soon as the component loads.\n* `initialContentHTML`\n\n\tHTML that will be rendered in the content section on load.\n* `titlePlaceholder`\n\n\tText that will be used as a placeholder when no text is present in the title section.\n* `contentPlaceholder `\n\t\n\tText that will be used as a placeholder when no text is present in the content section.\n* `customCSS `\n\n\tAny custom CSS styles that you want to inject to the editor.\n* `editorInitializedCallback `\n\n\tA function that will be called when the editor has been initialized.\n\n\n`RichTextEditor` also has methods that can be used on its `ref` to  set styling at the current selection or cursor position:\n\n*  `setBold() `\n*  `setItalic()`\n*  `setUnderline() `\n*  `heading1() `\n*  `heading2() `\n*  `heading3() `\n*  `heading4() `\n*  `heading5() `\n*  `heading6() `\n*  `setParagraph() `\n*  `removeFormat() `\n*  `alignLeft() `\n*  `alignCenter() `\n*  `alignRight() `\n*  `alignFull() `\n*  `insertBulletsList() `\n*  `insertOrderedList() `\n*  `insertLink(url, title) `\n*  `updateLink(url, title) `\n*  `insertImage(attributes) `\n*  `setSubscript() `\n*  `setSuperscript()`\n*  `setStrikethrough() `\n*  `setHR() `\n*  `setIndent()`\n*  `setOutdent() `\n*  `setBackgroundColor(color) `\n*  `setTextColor(color) `\n\nThis method shows a dialog for setting a link title and url, that will be inserted at the current cursor location.\n\n* `showLinkDialog(optionalTitle = '', optionalUrl = '')` \n\nTo adjust content, placeholders or css, use these methods\n\n*  `setTitlePlaceholder(placeholder) `\n*  `setContentPlaceholder(placeholder)`\n*  `setCustomCSS(css) `\n*  `setTitleHTML(html)` \n*  `setContentHTML(html) `\n\nThese methods are used when adding content such as images or links that will intefere with the cursor position. `prepareInsert` saves  the current selection, and `restoreSelection` will replace it after the insertion is done. It is called implicitly by `insertImage` and `insertLink` so they should probably never be called directly.\n\n*  `prepareInsert() `\n*  `restoreSelection() `\n\nTo get the content or title HTML, use these **asynchronous** methods.\n\n*  `async getTitleHtml() `\n*  `async getTitleText()`\n*  `async getContentHtml() `\n*  `async getSelectedText() `\n\nTo focus or blur sections, use these methods\n\n* `focusTitle()`\n* `focusContent()` \n*  `blurTitleEditor() `\n*  `blurContentEditor() `\n\nTo know when the title or content are in focus, use the following methods.\n\n*  `setTitleFocusHandler(callbackHandler) `\n*  `setContentFocusHandler(callbackHandler) `\n\nThis method registers a function that will get called whenver the cursor position changes or a change is made to the styling of the editor at the cursor's position., The callback will be called with an array of `actions` that are active at the cusor position, allowing a toolbar to respond to changes.\n\n*  `registerToolbar(listener)` \n\n###Example Usage:\n\n```javascript\n<RichTextEditor\n  ref={(r) => this.richtext = r}\n  initialTitleHTML={'Title!!'}\n  initialContentHTML={'Hello <b>World</b> <p>this is a new paragraph</p> <p>this is another new paragraph</p>'}\n  editorInitializedCallback={() => this.onEditorInitialized()}\n/>\n```\n\n![RichTextEditor](readme/editor.png)\n\n##`RichTextToolbar`\n\nThis is a Component that provides a toolbar for easily controlling an editor. It is designed to be used together with a `RichTextEditor` component.\n\nThe `RichTextToolbar` has one required property: \n\n* `getEditor()`\n\nWhich must provide a **function** that returns a `ref` to a `RichTextEditor` component. \n\nThis is because the `ref` is not created until after the first render, before which the toolbar is rendered. This means that any `ref` passed directly will inevitably be passed as `undefined`.\n\nOther props supported by the `RichTextToolbar` component are:\n\n* `actions`\n\n\tAn `array` of `actions` to be provided by this toolbar. The default actions are: \n\t* `actions.insertImage`\n  \t* `actions.setBold`\n  \t* `actions.setItalic`\n  \t* `actions.insertBulletsList`\n  \t* `actions.insertOrderedList`\n  \t* `actions.insertLink`\n \n* `onPressAddLink`\n* `onPressAddImage`\n\n\tFunctions called when the `addLink` or `addImage `actions are tapped. \n\t\n* `selectedButtonStyle`\n* `iconTint`\n* `selectedIconTint`\n* `unselectedButtonStyle`\n\n\tThese provide options for styling action buttons.\n\n* `renderAction`\n\n\tAltenatively, you can provide a render function that will be used instead of the default, so you can fully control the tollbar design.\n\t\n\t\n* `iconMap` \n\n\t`RichTextToolbar` comes with default icons for the default actions it renders. To override those, or to add icons for non-default actions, provide them in a dictionary to this prop.\n\t\n\n###Example Usage:\n\n```javascript\n<RichTextToolbar\n\tgetEditor={() => this.richtext}\n/>\n```\n\n![RichTextEditor](readme/toolbar.png)\n\n![RichTextEditor](readme/toolbar_selected.png)\n\n\n##`actions`\n\nThis is a set of consts of all supported actions. These will be passed in arrays to all callbacks registered with the editor using  the `registerToolbar()` method.\n\n\t{\n\t\tsetTitleHtml: 'SET_TITLE_HTML',\n\t  \tsetContentHtml: 'SET_CONTENT_HTML',\n\t  \tgetTitleHtml: 'GET_TITLE_HTML',\n\t  \tgetTitleText: 'GET_TITLE_TEXT',\n\t \tgetContentHtml: 'GET_CONTENT_HTML',\n\t  \tgetSelectedText: 'GET_SELECTED_TEXT',\n\t  \tblurTitleEditor: 'BLUR_TITLE_EDITOR',\n\t  \tblurContentEditor: 'BLUR_CONTENT_EDITOR',\n\t  \tfocusTitle: 'FOCUS_TITLE',\n\t  \tfocusContent: 'FOCUS_CONTENT',\n\t\t\n\t  \tsetBold: 'bold',\n\t  \tsetItalic: 'italic',\n\t  \tsetUnderline: 'underline',\n\t  \theading1: 'h1',\n\t  \theading2: 'h2',\n\t  \theading3: 'h3',\n\t  \theading4: 'h4',\n\t  \theading5: 'h5',\n\t  \theading6: 'h6',\n\t  \tsetParagraph: 'SET_PARAGRAPH',\n\t  \tremoveFormat: 'REMOVE_FORMAT',\n\t  \talignLeft: 'justifyLeft',\n\t  \talignCenter: 'justifyCenter',\n\t  \talignRight: 'justifyRight',\n\t  \talignFull: 'justifyFull',\n\t  \tinsertBulletsList: 'unorderedList',\n\t  \tinsertOrderedList: 'orderedList',\n\t  \tinsertLink: 'INST_LINK',\n\t  \tupdateLink: 'UPDATE_LINK',\n\t  \tinsertImage: 'INST_IMAGE',\n\t  \tsetSubscript: 'subscript',\n\t  \tsetSuperscript: 'superscript',\n\t  \tsetStrikethrough: 'strikeThrough',\n\t  \tsetHR: 'horizontalRule',\n\t  \tsetIndent: 'indent',\n\t  \tsetOutdent: 'outdent',\n\t  \tsetTitlePlaceholder: 'SET_TITLE_PLACEHOLDER',\n\t  \tsetContentPlaceholder: 'SET_CONTENT_PLACEHOLDER',\n\t  \tsetTitleFocusHandler: 'SET_TITLE_FOCUS_HANDLER',\n\t  \tsetContentFocusHandler: 'SET_CONTENT_FOCUS_HANDLER',\n\t  \tprepareInsert: 'PREPARE_INSERT',\n\t  \trestoreSelection: 'RESTORE_SELECTION',\n\t  \tsetCustomCSS: 'SET_CUSTOM_CSS',\n\t  \tsetTextColor: 'SET_TEXT_COLOR',\n\t  \tsetBackgroundColor: 'SET_BACKGROUND_COLOR',\n  \t}\n\n\n##Attribution\n\n`rich-text-editor` is a wrapper around the amazing [ZSSRichTextEditor](https://github.com/nnhubbard/ZSSRichTextEditor/tree/master/ZSSRichTextEditor) project. It also communicates with the editor using (a tiny fork) of the awesome [react-native-webview-bridge](https://github.com/alinz/react-native-webview-bridge) project.",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wix/rich-text-editor.git"
+  },
+  "version": "1.0.2"
+}
