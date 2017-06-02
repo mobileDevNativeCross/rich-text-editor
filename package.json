@@ -49,6 +49,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "name": "rich-text-editor",
+  "nativePackage": true,
   "optionalDependencies": {},
   "peerDependencies": {
     "react": "*",
