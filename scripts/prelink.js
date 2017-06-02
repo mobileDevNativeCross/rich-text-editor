@@ -24,9 +24,15 @@ try {
     // fs.writeFileSync(PACKAGE_GRADLE, main);
     // console.log('adding OkHttp3 dependency to pre 0.28 project .. ok')
   } else {
-    shell.exec('react-native link react-native-image-picker');
-    shell.exec('react-native link react-native-webview-bridge-updated');
+    if (shell.exec('react-native link react-native-image-picker').code === 0) {
+      if (shell.exec('react-native link react-native-webview-bridge-updated').code === 0) {
+        console.log('done');
+      }
+      console.log('not done');
+    }
+    console.log('sheet');
   }
+  console.log('end.');
 
   // console.log('Add Android permissions => ' + (addAndroidPermissions == "true"))
   //
@@ -65,7 +71,7 @@ try {
   // }
 
   function checkVersion() {
-    console.log('RNFetchBlob checking app version ..');
+    console.log('rich-text-editor checking app version ..');
     return parseFloat(/\d\.\d+(?=\.)/.exec(package.dependencies['react-native']));
   }
 
