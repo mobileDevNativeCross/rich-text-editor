@@ -1,24 +1,31 @@
 try {
-  var VERSION = checkVersion();
+  var fs = require('fs');
+  var shell = require('shelljs');
 
-  // var fs = require('fs');
+  var VERSION = checkVersion();
+  var PACKAGE_JSON = process.cwd() + '/package.json';
+  var package = JSON.parse(fs.readFileSync(PACKAGE_JSON));
+
   // var glob = require('glob');
   // var addAndroidPermissions = process.env.RNFB_ANDROID_PERMISSIONS == 'true';
   // var MANIFEST_PATH = glob.sync(process.cwd() + '/android/app/src/main/**/AndroidManifest.xml')[0];
-  // var PACKAGE_JSON = process.cwd() + '/package.json';
-  // var package = JSON.parse(fs.readFileSync(PACKAGE_JSON));
+
   // var APP_NAME = package.name;
   // var PACKAGE_GRADLE = process.cwd() + '/node_modules/react-native-fetch-blob/android/build.gradle'
   //
   // console.log('RNFetchBlob detected app version => ' + VERSION);
 
   if(VERSION < 0.31) {
-    console.log('You project version is '+ VERSION + ' which may not compatible to rich-text-editor (>= 0.31.0)')
+    console.log('You project version is '+ VERSION + ' which may not compatible to rich-text-editor (>= 0.31.0)');
+    return;
     // var main = fs.readFileSync(PACKAGE_GRADLE);
     // console.log('adding OkHttp3 dependency to pre 0.28 project .. ')
     // main = String(main).replace('//{RNFetchBlob_PRE_0.28_DEPDENDENCY}', "compile 'com.squareup.okhttp3:okhttp:3.4.1'");
     // fs.writeFileSync(PACKAGE_GRADLE, main);
     // console.log('adding OkHttp3 dependency to pre 0.28 project .. ok')
+  } else {
+    shell.exec('react-native link react-native-image-picker');
+    shell.exec('react-native link react-native-webview-bridge-updated');
   }
 
   // console.log('Add Android permissions => ' + (addAndroidPermissions == "true"))

@@ -40,7 +40,8 @@
   },
   "dependencies": {
     "react-native-webview-bridge-updated": "^1.0.0",
-    "react-native-image-picker": "0.26.3"
+    "react-native-image-picker": "0.26.3",
+    "shelljs": "0.7.7"
   },
   "description": "React Native Wrapper for ZSSRichTextEditor",
   "devDependencies": {},
