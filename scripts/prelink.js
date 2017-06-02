@@ -1,6 +1,9 @@
 try {
   var fs = require('fs');
   var shell = require('shelljs');
+  var cmd = require('node-cmd');
+  var copy = shell.cp;
+  var exec = require('child_process').exec;
 
   var PACKAGE_JSON = process.cwd() + '/package.json';
   var package = JSON.parse(fs.readFileSync(PACKAGE_JSON));
@@ -24,16 +27,39 @@ try {
     // fs.writeFileSync(PACKAGE_GRADLE, main);
     // console.log('adding OkHttp3 dependency to pre 0.28 project .. ok')
   } else {
-    if (shell.exec('react-native link react-native-image-picker').code === 0) {
-      if (shell.exec('react-native link react-native-webview-bridge-updated').code === 0) {
-        console.log('done');
-      }
-      console.log('not done');
-    }
-    console.log('sheet');
-  }
-  console.log('end.');
 
+
+    // iOS
+    console.log('iOS done.');
+
+    // android
+//     copy('-R', process.cwd() + '/node_modules/rich-text-editor/src/MathJax', process.cwd() + '/android/app/src/main/assets/MathJax');
+//     fs.appendFileSync(
+//       process.cwd() + '/android/app/build.gradle',
+//       `\nproject.afterEvaluate {\r\
+//     apply from: "../../node_modules/rich-text-editor/htmlCopy.gradle";\r\
+//     copyEditorHtmlToAppAssets(file("../../node_modules/rich-text-editor"));\r\
+// }\n`
+//     );
+    console.log('android done.');
+
+    // use something different
+    // cmd.run('react-native link react-native-image-picker');
+    // cmd.run('react-native link react-native-webview-bridge-updated');
+
+    // shell.exec('react-native link react-native-image-picker');
+    // shell.exec('react-native link react-native-webview-bridge-updated');
+    // exec('react-native link react-native-image-picker > /dev/null');
+    // exec('react-native link react-native-image-picker > /dev/null', function(error, stdout, stderr) {
+    //   console.log("error", error);
+    //   console.log("stdout", stdout);
+    //   console.log("stderr", stderr);
+    //   shell.exit(0);
+    // });
+    // exec('react-native link react-native-webview-bridge-updated > /dev/null');
+
+    console.log('end');
+  }
   // console.log('Add Android permissions => ' + (addAndroidPermissions == "true"))
   //
   // if(addAndroidPermissions) {

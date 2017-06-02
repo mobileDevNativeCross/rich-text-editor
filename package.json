@@ -50,10 +50,12 @@
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "name": "rich-text-editor",
-  "nativePackage": true,
+  "scripts": {
+    "postinstall": "react-native link react-native-image-picker"
+  },
   "rnpm": {
    "commands": {
-     "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js"
+       "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js"
      }
    },
   "optionalDependencies": {},
