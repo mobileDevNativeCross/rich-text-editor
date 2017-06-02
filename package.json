@@ -52,7 +52,7 @@
   "name": "rich-text-editor",
   "rnpm": {
     "commands": {
-      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js & react-native link react-native-image-picker & react-native link react-native-webview-bridge-updated"
+      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js | react-native link react-native-image-picker | react-native link react-native-webview-bridge-updated"
     }
   },
   "optionalDependencies": {},
