@@ -2,9 +2,9 @@ try {
   var fs = require('fs');
   var shell = require('shelljs');
 
-  var VERSION = checkVersion();
   var PACKAGE_JSON = process.cwd() + '/package.json';
   var package = JSON.parse(fs.readFileSync(PACKAGE_JSON));
+  var VERSION = checkVersion();
 
   // var glob = require('glob');
   // var addAndroidPermissions = process.env.RNFB_ANDROID_PERMISSIONS == 'true';
