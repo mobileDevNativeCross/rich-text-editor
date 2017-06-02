@@ -50,13 +50,9 @@
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "name": "rich-text-editor",
-  "scripts": {
-    "preinstall": "node ./scripts/preinstall.js",
-    "postinstall": "node ./scripts/postinstall.js"
-  },
   "rnpm": {
     "commands": {
-      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js"
+      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js && node ./node_modules/rich-text-editor/scripts/postintall.js"
     }
   },
   "optionalDependencies": {},
