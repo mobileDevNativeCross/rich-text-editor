@@ -39,9 +39,9 @@
     "url": "https://github.com/wix/rich-text-editor/issues"
   },
   "dependencies": {
-    "react-native-webview-bridge-updated": "^1.0.0",
     "react-native-image-picker": "0.26.3",
-    "shelljs": "0.7.7"
+    "react-native-webview-bridge-updated": "^1.0.0",
+    "shelljs": "^0.7.7"
   },
   "description": "React Native Wrapper for ZSSRichTextEditor",
   "devDependencies": {},
@@ -51,13 +51,14 @@
   "main": "index.js",
   "name": "rich-text-editor",
   "scripts": {
-    "postinstall": "react-native link react-native-image-picker"
+    "preinstall": "node ./scripts/preinstall.js",
+    "postinstall": "node ./scripts/postinstall.js"
   },
   "rnpm": {
-   "commands": {
-       "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js"
-     }
-   },
+    "commands": {
+      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js"
+    }
+  },
   "optionalDependencies": {},
   "peerDependencies": {
     "react": "*",
