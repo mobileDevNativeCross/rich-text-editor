@@ -8,7 +8,7 @@
   "dependencies": {
     "react-native-image-picker": "0.26.3",
     "react-native-webview-bridge-updated": "^1.0.0",
-    "androidmanifest": "^2.0.0",
+    "androidmanifest": "^2.0.0"
   },
   "peerDependencies": {
     "react": "*",
