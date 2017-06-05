@@ -1,6 +1,6 @@
 #Rich-Text-Editor
 
-A fully functional Rich Text Editor for both Android and iOS, based off the [ZSSRichTextEditor](https://github.com/nnhubbard/ZSSRichTextEditor/tree/master/ZSSRichTextEditor) project.
+A fully functional Rich Text Editor for both Android and iOS, based off the [ZSSRichTextEditor](https://github.com/wix/react-native-zss-rich-text-editor) project.
 
 ##Installation
 

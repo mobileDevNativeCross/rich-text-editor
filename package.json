@@ -1,64 +1,23 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "rich-text-editor@file:../",
-        "scope": null,
-        "escapedName": "rich-text-editor",
-        "name": "rich-text-editor",
-        "rawSpec": "file:../",
-        "spec": "/Users/admin/Desktop/Editor/rich-text-editor",
-        "type": "directory"
-      },
-      "/Users/admin/Desktop/Editor/rich-text-editor/example"
-    ]
-  ],
-  "_from": "..",
-  "_id": "rich-text-editor@1.0.2",
-  "_inCache": true,
-  "_location": "/rich-text-editor",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "rich-text-editor@file:../",
-    "scope": null,
-    "escapedName": "rich-text-editor",
-    "name": "rich-text-editor",
-    "rawSpec": "file:../",
-    "spec": "/Users/admin/Desktop/Editor/rich-text-editor",
-    "type": "directory"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "file:..",
-  "_shasum": "5ad5b4b6f23b1883d75e7d3a540bc7c61a226ef0",
-  "_shrinkwrap": null,
-  "_spec": "rich-text-editor@file:../",
-  "_where": "/Users/admin/Desktop/Editor/rich-text-editor/example",
-  "bugs": {
-    "url": "https://github.com/wix/rich-text-editor/issues"
-  },
+  "name": "rich-text-editor",
+  "version": "1.0.2",
+  "description": "React Native Wrapper for ZSSRichTextEditor",
+  "license": "SEE LICENSE IN LICENSE",
+  "readmeFilename": "README.md",
+  "main": "index.js",
   "dependencies": {
     "react-native-image-picker": "0.26.3",
     "react-native-webview-bridge-updated": "^1.0.0",
-    "shelljs": "^0.7.7"
+    "androidmanifest": "^2.0.0",
   },
-  "description": "React Native Wrapper for ZSSRichTextEditor",
-  "devDependencies": {},
-  "license": "SEE LICENSE IN LICENSE",
-  "main": "index.js",
-  "name": "rich-text-editor",
-  "rnpm": {
-    "commands": {
-      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js",
-      "postlink": "react-native link react-native-image-picker"
-    }
-  },
-  "optionalDependencies": {},
   "peerDependencies": {
     "react": "*",
     "react-native": ">=0.31.0"
   },
-  "readmeFilename": "README.md",
-  "version": "1.0.2"
+  "rnpm": {
+    "commands": {
+      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js",
+      "postlink": "react-native link react-native-image-picker & react-native link react-native-webview-bridge-updated"
+    }
+  }
 }
