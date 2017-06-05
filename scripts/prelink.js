@@ -23,6 +23,8 @@ try {
       .usesPermission('android.permission.WRITE_EXTERNAL_STORAGE');
 
     manifest.writeFile(manifestFilePath);
+
+    return;
   }
 
   function checkVersion() {
