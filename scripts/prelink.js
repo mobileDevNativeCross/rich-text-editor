@@ -1,6 +1,7 @@
 try {
   var fs = require('fs');
   var AndroidManifest = require('androidmanifest');
+  var shell = require('shelljs');
 
   var PACKAGE_JSON = process.cwd() + '/package.json';
   var package = JSON.parse(fs.readFileSync(PACKAGE_JSON));
@@ -12,7 +13,7 @@ try {
     return;
   } else {
     // copy MathJax
-    copy('-R', process.cwd() + '/node_modules/rich-text-editor/src/MathJax', process.cwd() + '/android/app/src/main/assets/MathJax');
+    shell.cp('-R', process.cwd() + '/node_modules/rich-text-editor/src/MathJax', process.cwd() + '/android/app/src/main/assets/MathJax');
 
     // add to manifest permissions
     var manifest = new AndroidManifest().readFile(manifestFilePath);
