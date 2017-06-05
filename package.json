@@ -10,7 +10,12 @@
     "react-native-webview-bridge-updated": "1.0.0",
     "androidmanifest": "2.0.0",
     "shelljs": "0.7.7",
-    "concurrently": "3.4.0"
+    "concurrently": "3.4.0",
+    "npm-run-all": "4.0.2"
+  },
+  "scripts": {
+    "linkImagePicker": "react-native link react-native-image-picker",
+    "linkWebviewBridge": "react-native link react-native-webview-bridge-updated"
   },
   "peerDependencies": {
     "react": "*",
@@ -19,7 +24,7 @@
   "rnpm": {
     "commands": {
       "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js",
-      "postlink": "concurrently \"react-native link react-native-image-picker\" \"react-native link react-native-webview-bridge-updated\""
+      "postlink": "npm-run-all linkImagePicker linkWebviewBridge"
     }
   }
 }
