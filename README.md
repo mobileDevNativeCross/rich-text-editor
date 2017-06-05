@@ -8,11 +8,12 @@ Install module:
 `npm i --save https://gregory.galushka@gitlab.intecracy.com/LabArchives/rich-text-editor.git`
 `react-native link rich-text-editor`
 
-Install image-picker:
-`npm i --save react-native-image-picker`
+Check your package.json and install if missed:
+1) react-native-image-picker
+`npm i --save react-native-image-picker@0.26.3`
 `react-native link react-native-image-picker`
-Install webview-bridge-updated:
-`npm i --save react-native-webview-bridge-updated`
+2) react-native-webview-bridge-update
+`npm i --save react-native-webview-bridge-updated@1.0.0`
 `react-native link react-native-webview-bridge-updated`
 
 Check if not configured before:
