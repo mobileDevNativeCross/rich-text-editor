@@ -24,7 +24,7 @@
   "rnpm": {
     "commands": {
       "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js",
-      "postlink": "npm run linkWebviewBridge | npm run linkImagePicker"
+      "postlink": "npm run linkWebviewBridge && npm run linkImagePicker"
     }
   }
 }
