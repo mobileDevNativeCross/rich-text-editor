@@ -4,17 +4,20 @@ A fully functional Rich Text Editor for both Android and iOS, based off the [ZSS
 
 ##Installation
 
+Install module:
 `npm i --save https://gregory.galushka@gitlab.intecracy.com/LabArchives/rich-text-editor.git`
 `react-native link rich-text-editor`
 
-Also if you see errors try run this:
+Install image-picker:
+`npm i --save react-native-image-picker`
 `react-native link react-native-image-picker`
+Install webview-bridge-updated:
+`npm i --save react-native-webview-bridge-updated`
 `react-native link react-native-webview-bridge-updated`
 
 Check if not configured before:
 	https://github.com/react-community/react-native-image-picker
 	https://github.com/wix/react-native-webview-bridge
-
 
 ##Android bug
 
