@@ -7,17 +7,18 @@
   "main": "index.js",
   "dependencies": {
     "androidmanifest": "2.0.0",
-    "shelljs": "0.7.7"
+    "shelljs": "0.7.7",
+    "react-native-webview-bridge-updated": "1.0.0"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": ">=0.31.0",
-    "react-native-image-picker": "0.26.3",
-    "react-native-webview-bridge-updated": "1.0.0"
+    "react-native-image-picker": "0.26.3"
   },
   "rnpm": {
     "commands": {
-      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js"
+      "prelink": "node ./node_modules/rich-text-editor/scripts/prelink.js",
+      "postlink": "react-native link react-native-webview-bridge-updated"
     }
   }
 }
