@@ -8,7 +8,7 @@
   "dependencies": {
     "androidmanifest": "2.0.0",
     "shelljs": "0.7.7",
-    "react-native-webview-bridge-updated": "https://github.com/mobileDevNativeCross/react-native-webview-bridge.git"
+    "react-native-webview-bridge-updated": "git+https://github.com/mobileDevNativeCross/react-native-webview-bridge.git"
   },
   "peerDependencies": {
     "react": "*",
